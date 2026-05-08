@@ -172,3 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cfd5ace5b2aea4aa550bdbdc760bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theTorque: 555
+  speedRand: 15
+  xRange: 4
+  ySpawnPos: -6
