@@ -5,6 +5,9 @@ public class Target : MonoBehaviour
 
     private Rigidbody targetRb;
 
+    private GameManager gameManager;
+    public int valueWorth = 5;
+
     // Move values
     public float theTorque = 10;
     public float speedRand = 12;
@@ -24,6 +27,8 @@ public class Target : MonoBehaviour
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         //X slider for where it spawns
         transform.position = RandomSpawnPos();
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
 
@@ -46,5 +51,16 @@ public class Target : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+        gameManager.UpdateScore(valueWorth);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 }

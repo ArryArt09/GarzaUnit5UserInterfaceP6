@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,10 +10,16 @@ public class GameManager : MonoBehaviour
 
     public float spawnRate = 1.0f;
 
+    private int score;
+    public TextMeshProUGUI scoreText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(SpawnTarget());
+
+        score = 0;
+        UpdateScore(0);
     }
 
     IEnumerator SpawnTarget()
@@ -25,19 +32,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Hunger Points Satiated: " + score;
+    }
+
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    private void OnMouseDown()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
     }
 }
