@@ -5,6 +5,8 @@ public class Target : MonoBehaviour
 
     private Rigidbody targetRb;
 
+    public ParticleSystem explosionParticle;
+
     private GameManager gameManager;
     public int valueWorth = 5;
 
@@ -56,6 +58,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        Instantiate(explosionParticle, transform.position, explosionParticle.trabsform.rotation);
         gameManager.UpdateScore(valueWorth);
     }
 

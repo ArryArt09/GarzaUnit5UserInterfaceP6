@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cfd5ace5b2aea4aa550bdbdc760bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueWorth: 58
+  valueWorth: 93
   theTorque: 5
   speedRand: 40
   xRange: 4
