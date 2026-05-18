@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
     public float spawnRate = 1.0f;
 
     private int score;
+    private int lives;
+
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +23,12 @@ public class GameManager : MonoBehaviour
 
         score = 0;
         UpdateScore(0);
+        UpdateLives(3);
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
     }
 
     IEnumerator SpawnTarget()
@@ -38,9 +47,18 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Hunger Points Satiated: " + score;
     }
 
+    public void UpdateLives(int livesToLoose)
+    {
+        lives -= livesToLoose;
+        //add life counter code
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (lives == 0)
+        {
+            GameOver();
+        }
     }
 }
