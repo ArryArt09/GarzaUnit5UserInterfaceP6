@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
 
     private GameManager gameManager;
     public int valueWorth = 5;
+    public int danger = 1;
 
     // Move values
     public float theTorque = 10;
@@ -57,9 +58,12 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        gameManager.UpdateScore(valueWorth);
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            gameManager.UpdateScore(valueWorth);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,7 +71,7 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
         if (!gameObject.CompareTag("Bad"))
         {
-            gameManager.GameOver();
+            gameManager.UpdateLives(danger);
         }
     }
 }

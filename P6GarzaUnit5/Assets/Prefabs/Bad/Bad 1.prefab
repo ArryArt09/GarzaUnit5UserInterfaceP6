@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6727499937981760424}
   - component: {fileID: 7429853903100133481}
   - component: {fileID: 4125157684727944514}
+  - component: {fileID: 6787967007261880022}
   m_Layer: 0
   m_Name: Bad 1
   m_TagString: Bad
@@ -174,7 +175,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
   valueWorth: -150
+  danger: 1
   theTorque: 555
   speedRand: 15
   xRange: 4
   ySpawnPos: -6
+--- !u!114 &6787967007261880022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802098853691372957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ac00851377a9a4cbc8e88d582fd920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3814187036465262380}
   - component: {fileID: 2049691842207815409}
   - component: {fileID: 639841996089567321}
+  - component: {fileID: 6219264822328191193}
   m_Layer: 0
   m_Name: Bad 2
   m_TagString: Bad
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticle: {fileID: 4758139293545943008, guid: c7ad2532a6eeb40b59033c75e71fa054, type: 3}
   valueWorth: -350
+  danger: 1
   theTorque: 1111
   speedRand: 13.5
   xRange: 4
@@ -155,3 +157,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6219264822328191193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854450887418250448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ac00851377a9a4cbc8e88d582fd920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
