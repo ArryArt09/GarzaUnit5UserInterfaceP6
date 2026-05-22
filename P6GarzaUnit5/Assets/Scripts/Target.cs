@@ -9,7 +9,7 @@ public class Target : MonoBehaviour
 
     private GameManager gameManager;
     public int valueWorth = 5;
-    public int danger = 1;
+    public int Nutrition = 1;
 
     // Move values
     public float theTorque = 10;
@@ -63,15 +63,20 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(valueWorth);
+        if (!gameObject.CompareTag("Bad"))
+        {
+            gameManager.UpdateLives(-Nutrition);
+        }
+        if (!gameObject.CompareTag("Good"))
+        {
+            gameManager.UpdateLives(Nutrition);
+        }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        if (!gameObject.CompareTag("Bad"))
-        {
-            gameManager.UpdateLives(danger);
-        }
+        
     }
 }

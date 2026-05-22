@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,12 +13,14 @@ public class GameManager : MonoBehaviour
     public float spawnRate = 1.0f;
 
     private int score;
-    private int lives;
+    public int lives;
 
     public bool isGameActive;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI lifeText;
+    public Button restartButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +38,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
         isGameActive = false;
+    }
+
+public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 
     IEnumerator SpawnTarget()
@@ -56,7 +66,7 @@ public class GameManager : MonoBehaviour
     public void UpdateLives(int livesToLoose)
     {
         lives -= livesToLoose;
-        //add life counter code
+        lifeText.text = "Energy Left: " + lives;
     }
 
     // Update is called once per frame
@@ -65,6 +75,10 @@ public class GameManager : MonoBehaviour
         if (lives < 1)
         {
             GameOver();
+        }
+        if (score < 0)
+        {
+            score = 0;
         }
     }
 }

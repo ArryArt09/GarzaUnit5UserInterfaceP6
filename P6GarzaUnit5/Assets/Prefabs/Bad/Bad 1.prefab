@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
   valueWorth: -150
-  danger: 1
+  Nutrition: 5
   theTorque: 555
   speedRand: 15
   xRange: 4
@@ -192,3 +192,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ac00851377a9a4cbc8e88d582fd920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Variable: 6.9
+  XVariable: 20
