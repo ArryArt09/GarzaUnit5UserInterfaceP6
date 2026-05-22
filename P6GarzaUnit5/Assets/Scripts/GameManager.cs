@@ -65,7 +65,14 @@ public void RestartGame()
 
     public void UpdateLives(int livesToLoose)
     {
-        lives -= livesToLoose;
+        if (livesToLoose > 0)
+        {
+            lives += livesToLoose;
+        }
+        if (livesToLoose < 0)
+        {
+            lives -= livesToLoose;
+        }
         lifeText.text = "Energy Left: " + lives;
     }
 
