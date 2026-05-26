@@ -63,14 +63,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(valueWorth);
-        if (!gameObject.CompareTag("Bad"))
-        {
-            gameManager.UpdateLives(-Nutrition);
-        }
-        if (!gameObject.CompareTag("Good"))
-        {
             gameManager.UpdateLives(Nutrition);
-        }
         }
     }
 

@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using NUnit.Framework.Constraints;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,13 +22,19 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI lifeText;
     public Button restartButton;
+    public GameObject titleMeanie;
+    public GameObject UserI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void StartGame(int difficultySet)
     {
         StartCoroutine(SpawnTarget());
 
+        spawnRate /= difficultySet;
+
         isGameActive = true;
+        UserI.gameObject.SetActive(true);
+        titleMeanie.gameObject.SetActive(false);
 
         score = 0;
         UpdateScore(0);
@@ -65,14 +72,7 @@ public void RestartGame()
 
     public void UpdateLives(int livesToLoose)
     {
-        if (livesToLoose > 0)
-        {
-            lives += livesToLoose;
-        }
-        if (livesToLoose < 0)
-        {
-            lives -= livesToLoose;
-        }
+        lives += livesToLoose;
         lifeText.text = "Energy Left: " + lives;
     }
 
