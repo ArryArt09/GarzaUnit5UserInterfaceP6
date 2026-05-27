@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     //Active Game
     public bool isGameActive;
 
+    //Pause
+    public GameObject pauseScreen;
+    private bool paused;
+
     //UI bulshit
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
@@ -68,6 +72,22 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
         lives = 3;
         UpdateLives(0);
+    }
+
+    void ChangePaused()
+    {
+        if(!paused)
+        {
+            paused = true;
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            paused = false;
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     public void GameOver()
@@ -119,6 +139,11 @@ public void RestartGame()
         if (audioCheck == true)
         {
             PlayMusic.pitch = audioSpeed;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ChangePaused();
         }
     }
 }
