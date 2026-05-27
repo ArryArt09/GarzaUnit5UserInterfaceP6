@@ -8,6 +8,7 @@ public class DifficultyButton : MonoBehaviour
     GameManager gameManager;
 
     public int difficultySet;
+    public float soundSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +21,7 @@ public class DifficultyButton : MonoBehaviour
     void SetDifficulty()
     {
         gameManager.StartGame(difficultySet);
+        gameManager.audioSpeed = soundSpeed;
         Debug.Log(gameObject.name + " got touched by BDR");
     }
 
